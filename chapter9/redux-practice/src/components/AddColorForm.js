@@ -4,14 +4,14 @@ import { addColor } from '../actions'
 
 
 
-const AddColorForm = (props, { store }) => {
+const AddColorForm = ({onNewColor=f=>f}) => {
   let _title, _color;
 
   const submit = e => {
     e.preventDefault()
-    // onNewColor(_title.value, _color.value)
-    console.log(store);
-    store.dispatch(addColor(_title.value, _color.value))
+    onNewColor(_title.value, _color.value)
+    // console.log(store);
+    // store.dispatch(addColor(_title.value, _color.value))
     _title.value = ''
     _color.value = '#000000'
     _title.focus()

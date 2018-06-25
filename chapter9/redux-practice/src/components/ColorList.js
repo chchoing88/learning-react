@@ -5,7 +5,7 @@ import { rateColor, removeColor } from '../actions'
 import { sortFunction } from '../lib/array-helpers'
 // import '../../stylesheets/ColorList.scss'
 
-const ColorList = ({ colors = [] }) => {
+const ColorList = ({ colors=[], onRate=f=>f, onRemove=f=>f }) => {
 
   // const { colors, sort } = store.getState();
   // const sortedColors = [...colors].sort(sortFunction(sort))
@@ -17,8 +17,8 @@ const ColorList = ({ colors = [] }) => {
         colors.map(color =>
           <Color key={color.id}
             {...color}
-          // onRate={(rating) => onRate(color.id, rating)}
-          // onRemove={() => onRemove(color.id)} 
+          onRate={(rating) => onRate(color.id, rating)}
+          onRemove={() => onRemove(color.id)} 
           // onRate={rating =>
           //   store.dispatch(rateColor(color.id, rating))
           // }
