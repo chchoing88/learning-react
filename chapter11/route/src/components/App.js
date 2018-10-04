@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   HashRouter,
   Route,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom'
 
 import {
@@ -22,6 +23,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
+            <Redirect from="/service" to="/about/service" />
             <Route path="/events" component={Events} />
             <Route path="/products" component={Products} />
             <Route path="/contact" component={Contact} />
